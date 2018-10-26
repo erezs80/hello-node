@@ -8,9 +8,7 @@ pool:
 
 variables:
   imageName: 'myacr001.azurecr.io/hello-node:$(build.buildId)'
-  ###dockerId: 'myacr001'
-  ###pswd: '98ZlCX/XJtP0qK=r64fxQ4LINHZZoEy0'
-  
+    
 steps:
 ###- script: docker build -f Dockerfile -t $(imageName) .
 ###  displayName: 'docker build'
