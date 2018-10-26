@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello
-        image: mycr001.azurecr.io/hello-node:6
+        image: mycr001.azurecr.io/hello-node
         resources:
           requests:
             cpu: 100m
