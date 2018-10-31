@@ -8,7 +8,8 @@ pool:
 
 variables:
   imageName: 'myacr001.azurecr.io/hello-node:$(build.buildId)'
-    
+  imageNameLatest: 'myacr001.azurecr.io/hello-node:latest'
+  
 steps:
 ###- script: docker build -f Dockerfile -t $(imageName) .
 ###  displayName: 'docker build'
@@ -32,3 +33,10 @@ steps:
   inputs:
     command: 'push'
     imageName: 'myacr001.azurecr.io/hello-node:$(build.buildId)'
+- script: docker tag $(imageName) $(imageNameLatest)
+  displayName: 'docker tag'
+- task: Docker@1
+  displayName: 'Push an image latest'
+  inputs:
+    command: 'push'
+    imageName: 'myacr001.azurecr.io/hello-node:latest'
